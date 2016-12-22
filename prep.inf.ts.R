@@ -80,7 +80,45 @@ inf.ts.W <- inf.ts.wide; rm(inf.ts.wide)
 save(inf.ts.W, file = "data/processed/R/inf.ts.W.Rdata")
 #write.csv(inf.ts.W, file = "data/processed/csv/inf.ts.W.csv",row.names=F)
 write.csv(inf.ts.W, file = "C:/Users/ccesar/Desktop/MyFiles - not backed up/[THE LAB]/[temp]/inf.ts.W.csv",row.names=F)
-
+#####################################
+## Collapse taxon names to pool data
+#####################################
+### Nephtys
+inf.ts.W$temp <- inf.ts.W$Nephtys + inf.ts.W$Nephtys.cirrosa + inf.ts.W$Nephtys.hombergii
+inf.ts.W$Nephtys <- NULL; 
+inf.ts.W$Nephtys.cirrosa <- NULL; inf.ts.W$Nephtys.hombergii <- NULL
+inf.ts.W$Nephtys <- inf.ts.W$temp; inf.ts.W$temp <- NULL
+### Arenicola
+inf.ts.W$temp <- inf.ts.W$Arenicola + inf.ts.W$Arenicola.marina
+inf.ts.W$Arenicola <- NULL; inf.ts.W$Arenicola.marina <- NULL;
+inf.ts.W$Arenicola <- inf.ts.W$temp; inf.ts.W$temp <- NULL
+### Pontocrates
+inf.ts.W$temp <- inf.ts.W$Pontocrates + inf.ts.W$Pontocrates.arcticus +
+  inf.ts.W$Pontocrates.arenarius
+inf.ts.W$Pontocrates <- NULL; inf.ts.W$Pontocrates.arcticus <- NULL
+inf.ts.W$Pontocrates.arenarius <- NULL
+inf.ts.W$Pontocrates <- inf.ts.W$temp; inf.dat$temp <- NULL
+### Bathyporeia
+inf.ts.W$temp <- inf.ts.W$Bathyporeia + inf.ts.W$Bathyporeia.pelagica +
+  inf.ts.W$Bathyporeia.sarsi
+inf.ts.W$Bathyporeia<- NULL;
+inf.dat$Bathyporeia.pelagica <- NULL
+inf.ts.W$Bathyporeia.sarsi <- NULL
+inf.ts.W$Bathyporeia <- inf.ts.W$temp; inf.ts.W$temp <- NULL
+### Corophium
+inf.ts.W$temp <- inf.ts.W$Corophium + inf.ts.W$Corophium.volutator + inf.ts.W$Corophium.arenarium
+inf.ts.W$Corophium <- NULL; inf.ts.W$Corophium.volutator <- NULL;inf.ts.W$Corophium.arenarium <- NULL;
+inf.ts.W$Corophium <- inf.ts.W$temp; inf.ts.W$temp <- NULL
+### Mytilidae
+inf.ts.W$temp <- inf.ts.W$Mytilidae + inf.ts.W$Mytilus.edulis
+inf.ts.W$Mytilidae <- NULL; inf.ts.W$Mytilus.edulis <- NULL
+inf.ts.W$Mytilidae <- inf.ts.W$temp; inf.ts.W$temp <- NULL
+### Eurydice
+inf.ts.W$temp <- inf.ts.W$Eurydice + inf.ts.W$Eurydice.affinis +
+  inf.ts.W$Eurydice.pulchra
+inf.ts.W$Eurydice <- NULL; inf.ts.W$Eurydice.affinis <- NULL
+inf.ts.W$Eurydice.pulchra <- NULL
+inf.ts.W$Eurydice <- inf.ts.W$temp; inf.ts.W$temp <- NULL
 ############################
 ## Summarise by year & zone
 ############################
